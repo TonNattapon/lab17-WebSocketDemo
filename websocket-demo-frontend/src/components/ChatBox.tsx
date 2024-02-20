@@ -12,7 +12,7 @@ export default function ChatBox() {
     const [typedMessage, setTypedMessage] = useState<string>("")
     const username = useAppSelector(selectUsername)
     const webSocketState = useAppSelector(selectWebSocket)
-    const count =
+    const counPlayer =
     webSocketState.messages?.reduce((total, message) => {
       if (
         message.type === messageType.JOIN ||
@@ -30,7 +30,7 @@ export default function ChatBox() {
                     <p className="text-gray-600">Welcome to the chat room!</p>
                     <p>
                         {/* Need to fix in this part */}
-                        Online persons : <strong>{count}</strong>
+                        Online persons : <strong>{counPlayer}</strong>
                     </p>                    
                 </div>
 
