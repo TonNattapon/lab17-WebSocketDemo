@@ -11,4 +11,18 @@ public class ChatMessage {
     private String timestamp;
     private String sender;
     private MessageType type;
+    private static int people ;
+    private int cound  ;
+
+    public static void addPeople() {
+        people++ ;
+    }
+    public static void minusPeople() {
+        people-- ;
+    }
+    public static  Integer getPeople() {
+        return people;
+    }
+
+
 }

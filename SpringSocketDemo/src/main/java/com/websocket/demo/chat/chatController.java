@@ -18,6 +18,15 @@ public class chatController {
     @SendTo("/topic/public")
     public ChatMessage addUser(ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-        return chatMessage;
+        ChatMessage.addPeople();
+        var chatMessage1 = ChatMessage.builder()
+                .content(chatMessage.getContent())
+                .timestamp(chatMessage.getTimestamp())
+                .sender(chatMessage.getSender())
+                .type(MessageType.JOIN)
+                .cound(ChatMessage.getPeople())
+                .build();
+        System.out.println(ChatMessage.getPeople());
+        return chatMessage1;
     }
 }
